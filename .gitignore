@@ -6,4 +6,4 @@ protected/data/*.db
 themes/classic/views/
 /.svn
 .idea/
-common/
+common/config/
