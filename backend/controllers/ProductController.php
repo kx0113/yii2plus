@@ -74,14 +74,17 @@ class ProductController extends Controller
      * 上传照片
      */
     public function actionImg(){
+        $path=Yii::getAlias('@data/upload/');
+//        var_dump($path);exit;
         $model=new Product();
-        $id=Yii::$app->request->get('id');
-        $mf=$model->findOne($id);
+        $id=$_REQUEST['id'];
+        $par=$_REQUEST['par'];
+        $mf = Product::findOne($id);
             //单张上传
-        if(Yii::$app->request->get('par')=='1'){
+        if($par =='1'){
             $img = Yii::$app->imgload->UploadPhoto($model,'uploads/','home_img');
             $mf->home_img=$img;
-        }elseif(Yii::$app->request->get('par')=='2'){
+        }elseif($par=='2'){
             //多张上传
             $img = Yii::$app->imgload->UploadPhoto($model,'uploads/','img_list');
             $mf1=$model->find()->where(['id'=>$id])->asArray()->one();
@@ -90,14 +93,19 @@ class ProductController extends Controller
             }else{
                 $mf->img_list=$img;
             }
+        }else{
+            echo json::encode(array('msg'=>'0'));
+            exit;
         }
         $res=$mf->save();
+//        var_dump($mf);
+//        exit;
         if($res){
-            echo json::encode(array('msg'=>'1'));
+            echo json::encode(array('msg'=>'1'));exit;
 //            echo json_encode(array('msg'=>'1'));
         }else{
 //            echo json_encode(array('msg'=>'0'));
-            echo json::encode(array('msg'=>'0'));
+            echo json::encode(array('msg'=>'0'));exit;
         }
     }
 

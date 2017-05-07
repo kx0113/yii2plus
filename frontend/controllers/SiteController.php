@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 //use Faker\Provider\zh_CN\Company;
+
 use Yii;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
@@ -17,6 +18,7 @@ use common\models\FrontMenu;
 use common\models\WebCommon;
 use common\models\Product;
 use common\models\News;
+use common\models\ProductType;
 use yii\data\ActiveDataProvider;
 use yii\data\Pagination;
 use common\models\Company;
@@ -79,12 +81,57 @@ class SiteController extends Controller
             ],
         ];
     }
-    public function actionMains(){
-        return $this->render('main',[
-
+    /**
+     * 产品分类
+     */
+    public function actionProClass(){
+        $res= ProductType::find()->where(['token'=>$this->session_web_id])->asArray()->all();
+        $arr=array(
+            'tel'=>'123321',
+            'telr'=>'121212eee',
+            'email'=>'12112@qq.com',
+            'com'=>'fdfdfdfdf',
+            'are'=>'sdfsdfsdf',
+            'web_tel'=>'0532-88886666',
+            'footer'=>'Copyright &#169; 2014LCKEJ.com All Rights Reserved.<br>121212121221<br>121212',
+        );
+        return array($res,$arr);
+    }
+    /**
+     * 产品中心
+     */
+    public function actionProduct(){
+        $data = Product::find()->andWhere(['token'=>$this->session_web_id]);
+        if(!empty($_REQUEST['id'])){
+            $data->andWhere(['type'=>$_REQUEST['id']]);
+        }
+        $pages = new Pagination(['totalCount' =>$data->count(), 'pageSize' => '12']);
+        $news = $data->offset($pages->offset)->limit($pages->limit)
+            ->orderBy(['add_time' => SORT_DESC])->all();
+//        var_dump($pages);
+        return $this->render('product',[
+            'tit'=>'联系我们',
+            'product'=>$news,
+            'page'=>$pages,
+            'proclass'=>$this->actionProClass(),
+           // 'cont'=>$this->project(1217),
+            'menu'=>$this->common_nav(),
         ]);
     }
-
+    /**
+     * 产品中心详情
+     */
+    public function actionProCont(){
+        $id=Yii::$app->request->get('id');
+        $new=new Product();
+        $news=$new->find()->where(['id'=>$id,'token'=>$this->session_web_id])->one();
+        return $this->render('procont',[
+            'pro'=>$news,
+            'proclass'=>$this->actionProClass(),
+//            'tit'=>Yii::$app->request->get('par'),
+            'menu'=>$this->common_nav(),
+        ]);
+    }
     /**
      * 联系我们
      */
@@ -93,6 +140,7 @@ class SiteController extends Controller
         return $this->render('content',[
             'tit'=>'联系我们',
             'cont'=>$this->project(1217),
+            'proclass'=>$this->actionProClass(),
             'menu'=>$this->common_nav(),
         ]);
     }
@@ -104,6 +152,7 @@ class SiteController extends Controller
         return $this->render('content',[
             'tit'=>'关于我们',
             'cont'=>$this->project(1220),
+            'proclass'=>$this->actionProClass(),
             'menu'=>$this->common_nav(),
         ]);
     }
@@ -114,6 +163,7 @@ class SiteController extends Controller
         return $this->render('content',[
             'tit'=>'上门维修',
             'cont'=>$this->project(1218),
+            'proclass'=>$this->actionProClass(),
             'menu'=>$this->common_nav(),
         ]);
     }
@@ -125,6 +175,7 @@ class SiteController extends Controller
         return $this->render('content',[
             'tit'=>'服务中心',
             'cont'=>$this->project(1219),
+            'proclass'=>$this->actionProClass(),
             'menu'=>$this->common_nav(),
         ]);
     }
@@ -148,6 +199,7 @@ class SiteController extends Controller
             'news'=>$news,
             'page'=>$pages,
             'tit'=>Yii::$app->request->get('par'),
+            'proclass'=>$this->actionProClass(),
             'menu'=>$this->common_nav(),
         ]);
     }
@@ -161,6 +213,7 @@ class SiteController extends Controller
         return $this->render('news_con',[
             'news'=>$news,
             'tit'=>Yii::$app->request->get('par'),
+            'proclass'=>$this->actionProClass(),
             'menu'=>$this->common_nav(),
         ]);
     }
@@ -199,6 +252,7 @@ class SiteController extends Controller
             'menu'=>$this->common_nav(),
             'banner'=>$banner_list,
             'product'=>$product,
+            'proclass'=>$this->actionProClass(),
             'news'=>$news,
         ]);
     }
