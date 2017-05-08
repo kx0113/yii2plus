@@ -32,6 +32,7 @@ class SiteController extends Controller
     public $company_type_model;
     public function init(){
         parent::init();
+        echo date('Y-m-d :H:i:s');
         Yii::$app->session->set('web_id',1);
         $web_in=$this->actionProClass();
         if($web_in[1]['start']!=='1'){
