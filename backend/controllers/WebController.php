@@ -127,6 +127,8 @@ class WebController extends Controller
         $str= serialize($_POST);
         $models = $model->findOne($id);
         $models->footer=$str;
+//        echo 'id';var_dump($id);echo '-';echo Yii::$app->session->get('web_id');exit;
+
         $res=$models->save();
         if ($res) {
             echo json_encode(array('msg'=>'1'));
@@ -139,15 +141,18 @@ class WebController extends Controller
      */
     public function actionWebFooter(){
         $model=new WebCommon();
+        $web_id=Yii::$app->session->get('web_id');
+//        var_dump($web_id);
         $wi=$this->get_web_common_info();
 //        var_dump();exit;
         if(!empty($wi)){
             if(!empty($wi['footer'])){
                 $info=unserialize($wi['footer']);
+                $info['id']=$wi['id'];
                 $data=$info;
             }
         }else{
-            $model->token=Yii::$app->session->get('web_id');
+            $model->token=$web_id;
             $model->save();
             $wi=$this->get_web_common_info();
             if(!empty($wi['footer'])){

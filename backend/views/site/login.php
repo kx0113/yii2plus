@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'password')->passwordInput()->label('密码') ?>
 
-                <?= $form->field($model, 'rememberMe')->checkbox()->label('记住我') ?>
+                
 
                 <div class="form-group">
                     <?= Html::submitButton('登陆', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
