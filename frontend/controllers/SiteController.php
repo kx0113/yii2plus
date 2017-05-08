@@ -223,7 +223,7 @@ class SiteController extends Controller
         //logo
         //news
         $new_m=new News();
-        $news=$new_m->find()->where(['type'=>1,'token'=>$this->session_web_id])->asArray()->limit(8)->all();
+        $news=$new_m->find()->where(['type'=>1,'token'=>$this->session_web_id])->asArray()->orderBy(['create_time' => SORT_DESC])->limit(8)->all();
         //product
         $pro_m=new Product();
         $product=$pro_m->find()->where(['token'=>$this->session_web_id])->limit(10)->asArray()->all();
