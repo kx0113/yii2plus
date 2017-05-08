@@ -140,15 +140,20 @@ class WebController extends Controller
     public function actionWebFooter(){
         $model=new WebCommon();
         $wi=$this->get_web_common_info();
-        $info=unserialize($wi['footer']);
 //        var_dump();exit;
         if(!empty($wi)){
-            $data=$info;
+            if(!empty($wi['footer'])){
+                $info=unserialize($wi['footer']);
+                $data=$info;
+            }
         }else{
             $model->token=Yii::$app->session->get('web_id');
             $model->save();
             $wi=$this->get_web_common_info();
-            $data=$info;
+            if(!empty($wi['footer'])){
+                $info=unserialize($wi['footer']);
+                $data=$info;
+            }
         }
         return $this->render('footer', [
             'data'=>$data,

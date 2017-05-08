@@ -37,13 +37,20 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'name',
+//            'name',
+            [
+                'attribute' => 'name',
+                'value'=>
+                    function($searchModel){
+                        return mb_substr($searchModel->name,0,10,'utf-8');
+                    },
+            ],
 //            'type',
             [
                 'attribute' => 'type',
                 'value'=>
                     function($searchModel){
-                        return ProductType::get_type_name($searchModel->type);
+                        return mb_substr(ProductType::get_type_name($searchModel->type),0,5,'utf-8');
                     },
             ],
 

@@ -38,7 +38,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'name',
+//            'name',
+            [
+                'attribute' => 'name',
+                'value'=>
+                    function($searchModel){
+                        return mb_substr($searchModel->name,0,15,'utf-8');
+                    },
+            ],
 //            'info:ntext',
 //            'type',
             [
@@ -77,6 +84,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     },
             ],
             ['class' => 'yii\grid\ActionColumn'],
+
         ],
     ]); ?>
 <?php Pjax::end(); ?></div></div></div></div></div></div></div>
