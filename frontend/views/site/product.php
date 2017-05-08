@@ -1,5 +1,10 @@
 <?php
 use yii\widgets\LinkPager;
+
+
+/* @var $this yii\web\View */
+
+$this->title = $proclass[1]['title'];
 ?>
 <link type="text/css" href="css/css.css" rel="stylesheet">
 <script src="js/jquery-1.js" type="text/javascript"></script>

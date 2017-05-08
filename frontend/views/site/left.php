@@ -16,11 +16,11 @@
 <!--        'com'=>'fdfdfdfdf',-->
 <!--        'are'=>'sdfsdfs-->
         <div class="liubai167"></div>
-        <div class="paging_lxwm_con"><?php echo $proclass[1]['tel']; ?><br>
-            <?php echo $proclass[1]['telr']; ?><br>
+        <div class="paging_lxwm_con"><?php echo $proclass[1]['company_tel']; ?><br>
+            <?php echo $proclass[1]['fax']; ?><br>
             <p> <?php echo $proclass[1]['email']; ?> </p>
-            <p> <?php echo $proclass[1]['com']; ?>&nbsp; &nbsp;&nbsp; </p>
-            <?php echo $proclass[1]['are']; ?><br>
+            <p> <?php echo $proclass[1]['company_name']; ?>&nbsp; &nbsp;&nbsp; </p>
+            <?php echo $proclass[1]['address']; ?><br>
         </div>
     </div>
 </div>

@@ -124,8 +124,9 @@ class WebController extends Controller
     public function actionSaveFoot(){
         $model=new WebCommon();
         $id=Yii::$app->request->post('id');
+        $str= serialize($_POST);
         $models = $model->findOne($id);
-        $models->footer=Yii::$app->request->post('footer');
+        $models->footer=$str;
         $res=$models->save();
         if ($res) {
             echo json_encode(array('msg'=>'1'));
@@ -139,13 +140,15 @@ class WebController extends Controller
     public function actionWebFooter(){
         $model=new WebCommon();
         $wi=$this->get_web_common_info();
+        $info=unserialize($wi['footer']);
+//        var_dump();exit;
         if(!empty($wi)){
-            $data=$wi;
+            $data=$info;
         }else{
             $model->token=Yii::$app->session->get('web_id');
             $model->save();
             $wi=$this->get_web_common_info();
-            $data=$wi;
+            $data=$info;
         }
         return $this->render('footer', [
             'data'=>$data,

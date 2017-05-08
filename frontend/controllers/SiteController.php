@@ -33,6 +33,12 @@ class SiteController extends Controller
     public function init(){
         parent::init();
         Yii::$app->session->set('web_id',1);
+        $web_in=$this->actionProClass();
+        if($web_in[1]['start']!=='1'){
+            $exit_str=$web_in[1]['webexitmsg'];
+            echo ''.$exit_str.'';
+            exit;
+        }
         $this->session_web_id=Yii::$app->session->get('web_id');
     }
     /**
@@ -82,20 +88,15 @@ class SiteController extends Controller
         ];
     }
     /**
-     * 产品分类
+     * 产品分类+基础信息
      */
     public function actionProClass(){
         $res= ProductType::find()->where(['token'=>$this->session_web_id])->asArray()->all();
-        $arr=array(
-            'tel'=>'123321',
-            'telr'=>'121212eee',
-            'email'=>'12112@qq.com',
-            'com'=>'fdfdfdfdf',
-            'are'=>'sdfsdfsdf',
-            'web_tel'=>'0532-88886666',
-            'footer'=>'Copyright &#169; 2014LCKEJ.com All Rights Reserved.<br>121212121221<br>121212',
-        );
-        return array($res,$arr);
+        $model=new WebCommon();
+        $web_id=Yii::$app->session->get('web_id');
+        $web_info=$model->find()->where(['token'=>$web_id])->asArray()->one();
+        $info=unserialize($web_info['footer']);
+        return array($res,$info);
     }
     /**
      * 产品中心
@@ -150,35 +151,13 @@ class SiteController extends Controller
      */
     public function actionIntro(){
         return $this->render('content',[
-            'tit'=>'关于我们',
-            'cont'=>$this->project(1220),
-            'proclass'=>$this->actionProClass(),
-            'menu'=>$this->common_nav(),
-        ]);
-    }
-    /**
-     * 上门维修
-     */
-    public function actionMaintain(){
-        return $this->render('content',[
-            'tit'=>'上门维修',
-            'cont'=>$this->project(1218),
+            'tit'=>$_GET['name'],
+            'cont'=>$this->project($_GET['id']),
             'proclass'=>$this->actionProClass(),
             'menu'=>$this->common_nav(),
         ]);
     }
 
-    /**
-     * 服务中心
-     */
-    public function actionProject(){
-        return $this->render('content',[
-            'tit'=>'服务中心',
-            'cont'=>$this->project(1219),
-            'proclass'=>$this->actionProClass(),
-            'menu'=>$this->common_nav(),
-        ]);
-    }
     /**
      * 项目
      */

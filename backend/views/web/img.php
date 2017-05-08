@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Web */
 
-$this->title = $name.'_Logo&Banner上传' ;
+$this->title = '【'.$name.'】基础图片' ;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -32,13 +32,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="ibox float-e-margins">
                             <div class="ibox-content">
                                 <br>
-                                <p><strong><?php echo $name; ?>_网站logo</strong><span style="color:#f00;">【仅能上传一张图片，如多次上传将被覆盖，仅支持'jpg', 'png', 'gif'】</span></p>
+                                <p><strong>【<?php echo $name; ?>】网站logo</strong><span style="color:#f00;">【仅能上传一张图片，如多次上传将被覆盖，仅支持'jpg', 'png', 'gif'】</span></p>
                                 <br>
                                 <div class="home_img_call">
                                     <input id="file-0a" class="file" name="WebCommon[logo]" type="file" multiple >
                                 </div>
                                 <br>
-                                <p><strong><?php echo $name; ?>_banner图</strong><span style="color:#f00;">【可上传多张图片，仅支持'jpg', 'png', 'gif'】</span></p>
+                                <p><strong>【<?php echo $name; ?>】banner图</strong><span style="color:#f00;">【可上传多张图片，仅支持'jpg', 'png', 'gif'】</span></p>
                                 <br>
                                 <div class="img_list_call">
                                     <input id="kv-explorer" type="file" name="WebCommon[banner]" multiple>

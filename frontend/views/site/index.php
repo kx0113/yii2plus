@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = '21';
+$this->title = $proclass[1]['title'];
 ?>
 <link type="text/css" href="css/css.css" rel="stylesheet">
 <script src="js/jquery-1.js" type="text/javascript"></script>
@@ -94,7 +94,7 @@ $this->title = '21';
 <!--                images/20140821062919_74525.gif-->
 <!--                D:/WWW/Yii2plus/backend/web/uploads/20170506/20170506_180151_1111024649.png-->
                 <div class="title"><img src="images/icon.gif"> 关于我们 <span>ABOUT US</span></div>
-                <div class="index_gywm"> <img src=" images/20140821062919_74525.gif" alt="" style="padding-right:10px;" align="left">　　1212顶顶顶顶顶顶顶顶顶顶滴答滴答滴答滴答滴答滴答滴答滴答滴答滴答滴答滴答滴答多多多大的反反复复反复反复反复反复反复反复反复反复反复反复发反复反复反复反复反复反复反复反复反复<a href="index.php?r=site/intro"><img src="images/ckxx.gif"></a> </div>
+                <div class="index_gywm"> <img src=" images/20140821062919_74525.gif" alt="" style="padding-right:10px;" align="left"><?php echo $proclass[1]['indexabout']?><br><a href="index.php?r=site/intro&id=1220&name=关于我们"><img src="images/ckxx.gif"></a> </div>
             </div>
             <div class="main_Con_t_M">
                 <div class="title"><img src="images/icon.gif"> 新闻中心 <span>NEWS</span> <span class="more"><a href="index.php?r=site/news&id=1&par=新闻中心">+MORE</a></span></div>
@@ -114,14 +114,14 @@ $this->title = '21';
             <div class="main_Con_t_R">
                 <div class="index_lxwm">
                     <div class="liubai">&nbsp;</div>
-                    <div class="index_lxwm_Con"> <a href="index.php?r=site/maintain">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上门维修</a><br>
-                        <a href="index.php?r=site/about">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系我们</a> </div>
+                    <div class="index_lxwm_Con"> <a href="index.php?r=site/intro&id=1218&name=上门维修">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上门维修</a><br>
+                        <a href="index.php?r=site/intro&id=1217&name=联系我们">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系我们</a> </div>
                 </div>
             </div>
         </div>
         <!--产品展示-->
         <div class="main_Con_b">
-            <div class="title"><img src="images/icon.gif"> 服务项目 <span>SERVICE&nbsp;PROJECT</span> <span class="more"><a href="#">+MORE</a>&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+            <div class="title"><img src="images/icon.gif"> 服务项目 <span>SERVICE&nbsp;PROJECT</span> <span class="more"><a href="index.php?r=site/product">+MORE</a>&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
             <div class="index_pro">
                 <div class="pro_02">
                     <div class="pro_02_01" id="colee_left">

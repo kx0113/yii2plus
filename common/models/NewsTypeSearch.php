@@ -43,7 +43,7 @@ class NewsTypeSearch extends NewType
     {
         $session=Yii::$app->session;
 
-        $query = NewType::find()->where(['token'=>$session->get('web_id')]);
+        $query = NewType::find()->where(['token'=>Yii::$app->session->get('web_id')]);
 
         // add conditions that should always apply here
 
