@@ -66,6 +66,22 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">网站关键词</label>
+                                    <div class="col-sm-10">
+                                        <textarea id="keywords" rows="6"  class="form-control" required aria-required="true"><?php if(!empty($data['keywords'])) echo $data['keywords']; ?></textarea>
+                                        <span class="help-block m-b-none"></span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">网站描述</label>
+                                    <div class="col-sm-10">
+                                        <textarea id="description" rows="6"  class="form-control" required aria-required="true"><?php if(!empty($data['description'])) echo $data['description']; ?></textarea>
+                                        <span class="help-block m-b-none"></span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
                                     <label class="col-sm-2 control-label">服务电话</label>
                                     <div class="col-sm-10">
                                         <input type="text" id="service_tel" value="<?php if(!empty($data['service_tel'])) echo $data['service_tel']; ?>" class="form-control">
@@ -179,6 +195,8 @@ $this->params['breadcrumbs'][] = $this->title;
         par.title=$("#title").val();
         par.indexabout=$("#indexabout").val();
         par.indexcompany=$("#indexcompany").val();
+        par.description=$("#description").val();
+        par.keywords=$("#keywords").val();
         par.email=$("#email").val();
         par.company_name=company_name;
         par.address=$("#address").val();

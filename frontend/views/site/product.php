@@ -3,7 +3,8 @@ use yii\widgets\LinkPager;
 
 
 /* @var $this yii\web\View */
-
+$this->description = $proclass[1]['description'];
+$this->keywords = $proclass[1]['keywords'];
 $this->title = $proclass[1]['title'];
 ?>
 <link type="text/css" href="css/css.css" rel="stylesheet">
