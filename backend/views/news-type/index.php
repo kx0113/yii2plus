@@ -61,27 +61,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             // 'sort',
 
-//            ['class' => 'yii\grid\ActionColumn'],
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'header' => '操作',
-                'options' => ['width' => '100px;'],
-                'template' => '{view} {update}',
-                'buttons' => [
-                    'view' => function ($url, $model) {
-                        return Html::a(Yii::t('app','[查看]'), $url, [
-                            'title' => Yii::t('app', 'view'),
-                        ]);
-                    },
-                    'update' => function ($url, $model) {
-                        return Html::a(Yii::t('app','[编辑]'), $url, [
-                            'title' => Yii::t('app', 'update'),
-                        ]);
-                    },
+            ['class' => 'yii\grid\ActionColumn'],
 
-                ],
-
-            ],
         ],
     ]); ?>
 <?php Pjax::end(); ?></div></div></div></div></div></div></div>

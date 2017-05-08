@@ -98,28 +98,36 @@ $this->params['breadcrumbs'][] = $this->title;
 //            ['class' => 'yii\grid\ActionColumn'],
             [
                 'class' => 'yii\grid\ActionColumn',
-                'header' => '操作',
+//                'header' => '操作',
                 'options' => ['width' => '100px;'],
                 'template' => '{view} {update}{delete}{upload}',
                 'buttons' => [
                     'view' => function ($url, $model) {
-                        return Html::a(Yii::t('app','[查看]'), $url, [
-                            'title' => Yii::t('app', 'view'),
+                        return Html::a(Yii::t('app',''), $url, [
+                            'title' => Yii::t('app', '查看'),
+//                            'style'=>'margin: 0 5px 0 0 ',
+                            'class'=>'glyphicon glyphicon-eye-open',
                         ]);
                     },
                     'update' => function ($url, $model) {
-                        return Html::a(Yii::t('app','[编辑]'), $url, [
-                            'title' => Yii::t('app', 'update'),
+                        return Html::a(Yii::t('app',''), $url, [
+                            'title' => Yii::t('app', '更新'),
+                            'class'=>'glyphicon glyphicon-pencil',
                         ]);
                     },
                     'delete' => function ($url, $model) {
-                        return Html::a(Yii::t('app','[删除]'), $url, [
-                            'title' => Yii::t('app', 'delete'),
+                        return Html::a(Yii::t('app',''), $url, [
+                            'title' => Yii::t('app', '删除'),
+                            'class'=>'glyphicon glyphicon-trash',
+                            'style'=>'margin: 0 0 0 5px',
                         ]);
                     },
                      'upload' => function ($url, $model) {
-                         return Html::a(Yii::t('app','[图片上传]'), $url);
-                                }
+                         return Html::a(Yii::t('app',''), $url,[
+                             'class'=>'glyphicon glyphicon-picture',
+                             'title' => Yii::t('app', '图片上传'),
+                             'style'=>'margin: 0 0 0 5px',
+                         ]);},
                 ],
 
             ],
