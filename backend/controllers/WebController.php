@@ -124,6 +124,9 @@ class WebController extends Controller
     public function actionSaveFoot(){
         $model=new WebCommon();
         $id=Yii::$app->request->post('id');
+        $_POST['create_at']=time();
+        $_POST['user_add']=yii::$app->user->identity->id;
+        $_POST['ip']=$_SERVER["REMOTE_ADDR"];
         $str= serialize($_POST);
         $models = $model->findOne($id);
         $models->footer=$str;
