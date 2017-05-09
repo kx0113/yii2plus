@@ -68,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">网站名称</label>
                                     <div class="col-sm-10">
-                                        <input type="text" id="title" value="<?php if(!empty($data['title'])) echo $data['title']; ?>" class="form-control">
+                                        <input type="text" id="webname" value="<?php if(!empty($data['webname'])) echo $data['webname']; ?>" class="form-control">
                                         <span class="help-block m-b-none"></span>
                                     </div>
                                 </div>
@@ -76,7 +76,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">网站URL</label>
                                     <div class="col-sm-10">
-                                        <input type="text" id="title" value="<?php if(!empty($data['title'])) echo $data['title']; ?>" class="form-control">
+                                        <input type="text" id="weburl" value="<?php if(!empty($data['weburl'])) echo $data['weburl']; ?>" class="form-control">
                                         <span class="help-block m-b-none"></span>
                                     </div>
                                 </div>
@@ -163,6 +163,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">首页联系我们</label>
+                                    <div class="col-sm-10">
+                                        <textarea id="indexcontact" rows="6"  class="form-control" required aria-required="true"><?php if(!empty($data['indexcontact'])) echo $data['indexcontact']; ?></textarea>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
                                     <label class="col-sm-2 control-label">备案号</label>
                                     <div class="col-sm-10">
                                         <input type="text" id="records" value="<?php  if(!empty($data['records'])) echo $data['records'];  ?>" class="form-control">
@@ -214,6 +221,9 @@ $this->params['breadcrumbs'][] = $this->title;
         par.description=$("#description").val();
         par.keywords=$("#keywords").val();
         par.email=$("#email").val();
+        par.webname=$("#webname").val();
+        par.weburl=$("#weburl").val();
+        par.indexcontact=$("#indexcontact").val();
         par.company_name=company_name;
         par.address=$("#address").val();
         //console.log(par);return false;
