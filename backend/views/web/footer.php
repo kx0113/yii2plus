@@ -66,6 +66,22 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">网站名称</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="title" value="<?php if(!empty($data['title'])) echo $data['title']; ?>" class="form-control">
+                                        <span class="help-block m-b-none"></span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">网站URL</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="title" value="<?php if(!empty($data['title'])) echo $data['title']; ?>" class="form-control">
+                                        <span class="help-block m-b-none"></span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
                                     <label class="col-sm-2 control-label">网站关键词</label>
                                     <div class="col-sm-10">
                                         <textarea id="keywords" rows="6"  class="form-control" required aria-required="true"><?php if(!empty($data['keywords'])) echo $data['keywords']; ?></textarea>
