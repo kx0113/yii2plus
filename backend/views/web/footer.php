@@ -122,6 +122,33 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">手机</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="mobile"
+                                               value="<?php if(!empty($data['mobile'])) echo $data['mobile']; ?>" class="form-control">
+                                        <span class="help-block m-b-none"></span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">联系人</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="webcontacts"
+                                               value="<?php if(!empty($data['webcontacts'])) echo $data['webcontacts']; ?>" class="form-control">
+                                        <span class="help-block m-b-none"></span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">邮编</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="postcode"
+                                               value="<?php if(!empty($data['postcode'])) echo $data['postcode']; ?>" class="form-control">
+                                        <span class="help-block m-b-none"></span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
                                     <label class="col-sm-2 control-label">公司邮箱</label>
                                     <div class="col-sm-10">
                                         <input type="text" id="email"
@@ -220,6 +247,9 @@ $this->params['breadcrumbs'][] = $this->title;
         par.indexcompany=$("#indexcompany").val();
         par.description=$("#description").val();
         par.keywords=$("#keywords").val();
+        par.webcontacts=$("#webcontacts").val();
+        par.mobile=$("#mobile").val();
+        par.postcode=$("#postcode").val();
         par.email=$("#email").val();
         par.webname=$("#webname").val();
         par.weburl=$("#weburl").val();
